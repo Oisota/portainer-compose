@@ -1,0 +1,13 @@
+version: '2'
+services:
+  thelounge:
+    image: thelounge/thelounge:4.3.1
+    container_name: thelounge
+    ports:
+      - "${HOST_PORT}:9000"
+    restart: always
+    volumes:
+      - thelounge_data:/var/opt/thelounge
+      
+volumes:
+  thelounge_data:
