@@ -2,7 +2,7 @@ version: '2'
 
 services:
   roundcubemail:
-    image: roundcube/roundcubemail:latest-fpm
+    image: roundcube/roundcubemail:latest
     container_name: roundcubemail
     restart: unless-stopped
     depends_on:
@@ -10,7 +10,7 @@ services:
     links:
       - roundcubedb
     ports:
-      - "${HOST_PORT}:9000"
+      - "${HOST_PORT}:80"
     volumes:
       - ./www:/var/www/html
     environment:
