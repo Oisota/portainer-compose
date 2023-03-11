@@ -1,0 +1,40 @@
+derekmorey.me {
+	root * /var/www/derekmorey.me
+	file_server
+
+	handle_errors {
+		@404-410 expression `{err.status_code} in [404, 410]`
+		handle @404-410 {
+			rewrite * /{err.status_code}/index.html
+			file_server
+		}
+	}
+}
+
+portainer.derekmorey.me {
+	reverse_proxy portainer:9700
+}
+
+home.derekmorey.me {
+	reverse_proxy heimdall:7032
+}
+
+miniflux.derekmorey.me {
+	reverse_proxy miniflux:7405
+}
+
+kanboard.derekmorey.me {
+	reverse_proxy kanboard:4519
+}
+
+thelounge.derekmorey.me {
+	reverse_proxy thelounge:4523
+}
+
+roundcube.derekmorey.me {
+	reverse_proxy roundcube:7355
+}
+
+linkding.derekmorey.me {
+	reverse_proxy linkding:8655
+}
