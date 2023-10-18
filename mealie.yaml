@@ -21,7 +21,7 @@ services:
       - ALLOW_SIGNUP=true
       - PUID=1000
       - PGID=1000
-      - TZ=America/New_York
+      - TZ=UTC
       - MAX_WORKERS=1
       - WEB_CONCURRENCY=1
       - BASE_URL=https://mealie.derekmorey.me
