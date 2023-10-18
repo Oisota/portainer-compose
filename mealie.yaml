@@ -5,7 +5,7 @@ services:
     image: ghcr.io/mealie-recipes/mealie:v1.0.0-RC1.1
     container_name: mealie
     ports:
-        - "9925:9000" # 
+        - "${HOST_PORT}:9000" # 
 
 
     deploy:
