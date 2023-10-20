@@ -13,11 +13,13 @@ services:
     depends_on:
       - backend
     ports:
-      - '127.0.0.1:${HOST_PORT}:8080'
+      - '${HOST_PORT}:8080'
     read_only: true
     tmpfs:
       - /tmp
     restart: unless-stopped
+    environment:
+      - GROCY_BASE_URL=https://grocy.derekmorey.me
 
   backend:
     image: "grocy/backend:v4.0.3"
@@ -38,6 +40,7 @@ services:
     environment:
       - GROCY_MODE=production
       - GROCY_CULTURE=en
+      - GROCY_BASE_URL=https://grocy.derekmorey.me
       # PHP Environment variables
       - MAX_UPLOAD=50M
       - PHP_MAX_FILE_UPLOAD=200
