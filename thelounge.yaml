@@ -1,7 +1,7 @@
 version: '2'
 services:
   thelounge:
-    image: thelounge/thelounge:4.3.1
+    image: thelounge/thelounge:4.4.1
     container_name: thelounge
     ports:
       - "${HOST_PORT}:9000"
