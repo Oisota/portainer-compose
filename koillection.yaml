@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  koillection:
+    image: koillection/koillection
+    container_name: koillection
+    restart: unless-stopped
+    ports:
+      - 80:80
+    depends_on:
+      - db
+    volumes:
+      - ./volumes/koillection/uploads:/uploads
+
+  db:
+    image: postgres:16
+    container_name: db
+    restart: unless-stopped
+    environment:
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+    volumes:
+      - "./volumes/postgresql:/var/lib/postgresql/data"
