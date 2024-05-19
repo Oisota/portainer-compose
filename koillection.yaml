@@ -6,7 +6,7 @@ services:
     container_name: koillection
     restart: unless-stopped
     ports:
-      - 80:80
+      - ${HOST_PORT}:80
     depends_on:
       - db
     volumes:
