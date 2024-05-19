@@ -8,6 +8,7 @@ services:
     ports:
       - ${HOST_PORT}:80
     environment:
+      - PHP_TZ=${PHP_TZ}
       - DB_DRIVER=${DB_DRIVER}
       - DB_NAME=${DB_NAME}
       - DB_HOST=${DB_HOST}
